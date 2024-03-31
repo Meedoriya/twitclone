@@ -30,6 +30,10 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     Set<Role> roles;
 
+    public boolean IsAdmin() {
+        return roles.contains(Role.ADMIN);
+    }
+
     public Long getId() {
         return id;
     }

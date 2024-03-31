@@ -2,11 +2,11 @@
 <#import "parts/login.ftl" as l>
 
 <@c.page>
-    Add new user
+    <div class="mb-1">Add new user</div>
     <#if message??> <!-- Check if the message exists before trying to display it -->
         <div class="alert">
             ${message}
         </div>
     </#if>
-    <@l.login "/registration" />
+    <@l.login "/registration" true/>
 </@c.page>

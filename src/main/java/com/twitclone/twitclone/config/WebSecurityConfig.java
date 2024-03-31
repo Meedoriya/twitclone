@@ -32,6 +32,7 @@ public class WebSecurityConfig {
                 )
                 .formLogin((form) -> form
                         .loginPage("/login")
+                        .defaultSuccessUrl("/main", true)
                         .permitAll()
                 )
                 .logout(LogoutConfigurer::permitAll);
