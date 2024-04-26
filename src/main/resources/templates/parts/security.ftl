@@ -1,9 +1,10 @@
-<#if session?? && session.SPRING_SECURITY_CONTEXT??>
+<#if session?has_content && session.SPRING_SECURITY_CONTEXT??>
     <#assign
-    user = session.SPRING_SECURITY_CONTEXT.authentication.principal
-    name = user.getUsername()
-    isAdmin = user.getAuthorities()?seq_contains("ADMIN")
-    currentUserId = user.getId()
+    secContext = session.SPRING_SECURITY_CONTEXT.authentication
+    user = secContext.principal
+    name = user.username
+    isAdmin = (secContext.authorities?seq_contains("ROLE_ADMIN")!false)
+    currentUserId = user.id
     >
 <#else>
     <#assign
